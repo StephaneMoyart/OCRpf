@@ -23,9 +23,6 @@ export const ProjectCard = ({ card, containerProgress }) => {
                 style={{ scaleX, borderTopLeftRadius, borderTopRightRadius, scale, transformOrigin: "top" }}
                 className={`h-[90%] w-full flex items-center justify-center ${color} relative ${translateY}`}
             >
-                <div className="h-1/2 w-1/2 bg-white">
-                    {title}
-                </div>
             </motion.div>
         </div>
     )

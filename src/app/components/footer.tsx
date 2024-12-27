@@ -33,7 +33,7 @@ export const Footer = () => {
                     </div>
                     <div className="flex w-full h-1/5 items-center text-2xl max-md:flex-col max-md:justify-evenly max-md:text-xl md:justify-between">
                         <p>moyartstephane@gmail.com</p>
-                        <p className="max-md:w-[200px]">Mentions légales</p>
+                        <p className="max-md:w-[200px]">© 2025 Tous droits réservés.</p>
                     </div>
                 </div>
             </div>

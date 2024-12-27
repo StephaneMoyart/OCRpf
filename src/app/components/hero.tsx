@@ -19,7 +19,7 @@ export const HeroSection = () => {
                     <p className="text-7xl">👋</p>
                     <h1 className="text-7xl">Web Dev Fullstack</h1>
                 </div>
-                <div className="absolute top-1/3 h-2/3 w-2/3 bg-white/10 rounded-lg cursor-text">
+                <motion.div initial={{opacity: 0}} animate={{opacity: 1}} transition={{duration: 1 }} className="absolute top-1/3 h-2/3 w-2/3 bg-white/10 rounded-lg cursor-text">
                     <div className="z-10 absolute top-[-30px] right-[-30px] h-72 w-72 bg-white/10 rounded-lg">
                         <div className="absolute inset-1 rounded-lg cursor-default z-50">
                             <Image
@@ -48,7 +48,7 @@ export const HeroSection = () => {
                             <p className="">{vsMockContent[(contentNb - 1)]}</p>
                         </div>
                     </div>
-                </div>
+                </motion.div>
             </div>
     )
 }
