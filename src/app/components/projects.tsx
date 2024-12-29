@@ -7,22 +7,31 @@ import { ProjectCard } from "./project-card"
 export const Projects = () => {
     const cards = [
         {
-            title: "numero 1",
-            color: "bg-blue-400",
+            id: 1,
+            title: "KASA",
+            mainPicture: "/kasa1.png",
+            secondaryPicture: "/kasa2.png",
+            techs: ["React", "Sass"],
+            color: "bg-zinc-800",
             translateY: "top-[10px]",
             range: 1/3,
             targetScale: 0.95
         },
         {
-            title: "numero 2",
-            color: "bg-slate-400",
+            id: 2,
+            title: "MON VIEUX GRIMOIRE",
+            mainPicture: "/mvg1.png",
+            secondaryPicture: "/mvg2.png",
+            techs: ["NodeJs", "Express", "Mongoose", "MongoDB"],
+            color: "bg-zinc-700",
             translateY: "top-[20px]",
             range: 2/3,
             targetScale: 0.975
         },
         {
+            id: 3,
             title: "numero3",
-            color: "bg-red-400",
+            color: "bg-zinc-600",
             translateY: "top-[30px]",
             range: 3/3,
             targetScale: 1

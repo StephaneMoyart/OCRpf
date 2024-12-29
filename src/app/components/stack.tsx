@@ -87,7 +87,6 @@ export const Stack = () => {
         return () => display()
     }, [scrollYProgress])
 
-
     return (
         <>
             <motion.div ref={transitionContainer} className="h-[300dvh] bg-green-200" >
@@ -104,11 +103,10 @@ export const Stack = () => {
                             transition={{ duration: 0.7}}
                         >
                             {stackItems.map(item => (
-                                <div key={item.id} className="flex items-center justify-center h-1/3 w-1/6 rounded-lg ">
-                                        <div className="flex items-center justify-center w-1/2 h-1/2">
-                                            {item.svg}
-                                            
-                                        </div>
+                                <div key={item.id} className="relative flex items-center justify-center h-1/3 w-1/6 rounded-lg ">
+                                    <div className=" flex items-center justify-center w-1/2 h-1/2 z-10">
+                                        {item.svg}
+                                    </div>
                                 </div>
                             ))}
                         </motion.div>
