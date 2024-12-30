@@ -1,11 +1,26 @@
 'use client'
 
-import { useScroll, useTransform } from "motion/react"
-import { useEffect, useRef } from "react"
+import { useScroll} from "motion/react"
+import { useRef } from "react"
 import { ProjectCard } from "./project-card"
 
+export type CardType = {
+    id: number
+    title?: string
+    mainPicture?: string 
+    secondaryPicture?: string
+    techs?: string[]
+    description?: string
+    tasks?: string[]
+    color: string
+    githubLink?: string
+    translateY: string
+    range: number
+    targetScale: number
+}
+
 export const Projects = () => {
-    const cards = [
+    const cards: CardType[] = [
         {
             id: 1,
             title: "KASA",
@@ -36,7 +51,6 @@ export const Projects = () => {
         },
         {
             id: 3,
-            title: "numero3",
             color: "bg-zinc-600",
             translateY: "top-[30px]",
             range: 3/3,

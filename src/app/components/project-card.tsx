@@ -1,11 +1,16 @@
 'use client'
 
-import { motion, useScroll, useTransform } from "motion/react"
+import { motion, MotionValue, useScroll, useTransform } from "motion/react"
 import Image from "next/image"
-import Link from "next/link"
 import { useRef, useState } from "react"
+import { CardType } from "./projects"
 
-export const ProjectCard = ({ card, containerProgress }) => {
+type ProjectCardProps = {
+    card: CardType
+    containerProgress: MotionValue<number>
+}
+
+export const ProjectCard: React.FC<ProjectCardProps> = ({ card, containerProgress }) => {
     const {id, title, mainPicture, secondaryPicture, techs, description, tasks, color, githubLink, translateY, range, targetScale} = card
     const cardRef = useRef(null)
     const { scrollYProgress } = useScroll({
@@ -56,17 +61,15 @@ export const ProjectCard = ({ card, containerProgress }) => {
                             </div>
                         </div>
                         <div className="relative h-full w-full">
-                            <Image
+                            <img
                                 className="rounded-t-[20px]"
                                 src={mainPicture}
                                 alt="image principale du projet"
-                                fill
-                                
                             />
                         </div>
                     </div>
                     <motion.div style={{ borderTopLeftRadius, borderTopRightRadius }} className="absolute inset-0 h-full w-full grid grid-cols-2 grid-rows-2 [transform:rotateY(180deg)] [backface-visibility:hidden]">
-                        <div style={{ borderTopLeftRadius }} className="relative">
+                        <div className="relative">
                             <motion.img
                                 style={{ borderTopLeftRadius }}
                                 src={mainPicture}
