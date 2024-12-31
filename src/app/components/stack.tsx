@@ -97,18 +97,20 @@ export const Stack = () => {
                     >
                     {displayTitle && 
                         <motion.div 
-                            className="h-dvh w-full flex flex-wrap justify-center items-center gap-8"
+                            className="flex justify-center items-center h-dvh w-full"
                             initial={{ x:-100, opacity: 0}}
                             animate={{x: 0, opacity: 1}}
                             transition={{ duration: 0.7}}
                         >
-                            {stackItems.map(item => (
-                                <div key={item.id} className="relative flex items-center justify-center h-1/3 w-1/6 rounded-lg ">
-                                    <div className=" flex items-center justify-center w-1/2 h-1/2 z-10">
-                                        {item.svg}
+                            <div className="w-[90%] h-[90%] grid grid-cols-5 grid-rows-2 gap-8">
+                                {stackItems.map(item => (
+                                    <div key={item.id} className="flex items-center justify-center bg-foreground rounded-md shadow-md shadow-black">
+                                        <div className="flex items-center justify-center w-1/2 h-1/2">
+                                            {item.svg}
+                                        </div>
                                     </div>
-                                </div>
-                            ))}
+                                ))}
+                            </div>
                         </motion.div>
                     }
                     </motion.div>
