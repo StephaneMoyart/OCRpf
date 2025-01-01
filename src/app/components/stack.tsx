@@ -8,63 +8,73 @@ export const Stack = () => {
     const stackItems = [
         {
             id: 1,
-            name: "ReactSvg",
+            name: "NextSvg",
             svg: <NextSvg/>,
-            color: ""
+            color: "#000000",
+            hoverRingColor: "hover:shadow-[#FFFFFF]"
         },
         {
             id: 2,
             name: "ReactSvg",
             svg: <ReactSvg/>,
-            color: ""
+            color: "#61DAFB",
+            hoverRingColor: "hover:shadow-[#61DAFB]"
         },
         {
             id: 3,
             name: "Typescript",
             svg: <TypescriptSvg/>,
-            color: ""
+            color: "#3178C6",
+            hoverRingColor: "hover:ring-[#3178C6]"
         },
         {
             id: 4,
             name: "Tailwind",
             svg: <TailwindSvg/>,
-            color: ""
+            color: "#06B6D4",
+            hoverRingColor: "hover:ring-[#06B6D4]"
         },
         {
             id: 5,
             name: "Motion",
             svg: <MotionSvg/>,
-            color: ""
+            color: "#F5EA16",
+            hoverRingColor: "hover:ring-[#F5EA16]"
         },
         {
             id: 6,
             name: "NodeJs",
             svg: <NodejsSvg/>,
-            color: ""
+            color: "#83CD29",
+            hoverRingColor: "hover:ring-[#83CD29]"
         },
         {
             id: 7,
             name: "Express",
             svg: <ExpressSvg/>,
-            color: ""
+            color: "#FFFFFF",
+            hoverRingColor: "hover:ring-[#FFFFFF]"
         },
         {
             id: 8,
             name: "MongoDB",
             svg: <MongodbSvg/>,
-            color: ""
+            color: "#599636",
+            hoverRingColor: "hover:ring-[#599636]"
         },
         {
             id: 9,
             name: "Mongoose",
             svg: <MongooseSvg/>,
-            color: ""
+            color: "#850000",
+            hoverRingColor: "hover:ring-[#850000]"
         },
         {
             id: 10,
             name: "Zod",
             svg: <ZodSvg/>,
-            color: ""
+            color: "#3068B7",
+            hoverRingColor: "hover:ring-[#3068B7]"
         },
     ]
 
@@ -98,13 +108,13 @@ export const Stack = () => {
                     {displayTitle && 
                         <motion.div 
                             className="flex justify-center items-center h-dvh w-full"
-                            initial={{ x:-100, opacity: 0}}
-                            animate={{x: 0, opacity: 1}}
-                            transition={{ duration: 0.7}}
+                            // initial={{ x:-100, opacity: 0}}
+                            // animate={{x: 0, opacity: 1}}
+                            // transition={{ duration: 0.7}}
                         >
-                            <div className="w-[90%] h-[90%] grid grid-cols-5 grid-rows-2 gap-8">
+                            <div className="w-[90%] grid grid-cols-5 grid-rows-2 gap-8">
                                 {stackItems.map(item => (
-                                    <div key={item.id} className="flex items-center justify-center bg-foreground rounded-md shadow-md shadow-black">
+                                    <div key={item.id} className={`max-h-[300px] flex items-center justify-center bg-foreground rounded-md border-2 border-black shadow-md shadow-black transition-shadow duration-500 ${item.hoverRingColor}`}>
                                         <div className="flex items-center justify-center w-1/2 h-1/2">
                                             {item.svg}
                                         </div>
