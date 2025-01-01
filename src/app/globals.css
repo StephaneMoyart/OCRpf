@@ -16,3 +16,19 @@ body {
 h1, h2, h3 {
   font-weight: 600;
 }
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #070707;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C8C8C8;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

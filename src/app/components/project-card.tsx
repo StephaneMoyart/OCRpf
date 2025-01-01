@@ -68,7 +68,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ card, containerProgres
                             />
                         </div>
                     </div>
-                    <motion.div style={{ borderTopLeftRadius, borderTopRightRadius }} className="absolute inset-0 h-full w-full grid grid-cols-2 grid-rows-2 [transform:rotateY(180deg)] [backface-visibility:hidden]">
+                    <motion.div style={{ borderTopLeftRadius, borderTopRightRadius }} className="absolute inset-0 h-full w-full grid grid-cols-2 grid-rows-2 [transform:rotateY(180deg)] [backface-visibility:hidden] bg-foreground">
                         <div className="relative">
                             <motion.img
                                 style={{ borderTopLeftRadius }}
