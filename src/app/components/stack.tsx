@@ -101,7 +101,7 @@ export const Stack = () => {
         <>
             <motion.div ref={transitionContainer} className="h-[300dvh] bg-green-200" >
                 <div className="sticky top-0 h-dvh w-full bg-foreground">
-                    <h2 className="absolute top-[50%] left-[50%] -translate-y-[calc(50%+14px)] -translate-x-[50%] text-9xl text-background">STACK</h2>
+                    <h2 className="absolute top-[50%] left-[50%] -translate-y-[calc(50%+17px)] -translate-x-[50%] text-9xl text-background">STACK</h2>
                     <motion.div className="flex items-center justify-center sticky h-dvh w-full bg-background"
                     style={{scaleX, scaleY}}
                     >

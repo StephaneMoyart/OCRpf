@@ -31,7 +31,7 @@ export const HeroSection = () => {
                         </div>
                     </div>
                     <div className="relative h-full w-1/3 bg-foreground border-2 border-black shadow-lg shadow-black rounded-md rounded-l-2xl p-4">
-                        <p className="text-background">test principal &#123; <br /> &nbsp;&nbsp; je suis le contenu de ce test <br /> &#125;</p>
+                        <p className="text-background">Interets &#123; <br /> &nbsp;&nbsp; Animations <br /> &#125;</p>
                     </div>
                     <div className="relative h-full w-1/3 bg-foreground border-2 border-black shadow-lg shadow-black rounded-md p-4">
                         
@@ -40,7 +40,10 @@ export const HeroSection = () => {
                     <p className="text-background">Nom &#123; <br /> &nbsp;&nbsp; Moyart <br /> &#125;</p>
                     <br />
                     <p className="text-background">Prenom &#123; <br /> &nbsp;&nbsp; Stephane <br /> &#125;</p>
+                    <br />
+                    <p className="text-background">Parcours &#123; <br /> &nbsp;&nbsp; Developpeur Web <br /> &nbsp;&nbsp; Niveau: Bac + 2 <br /> &nbsp;&nbsp; Organisme: Openclassrooms <br /> &#125;</p>
                     </div>
+                    
 
                     {/* <div className="flex flex-col absolute inset-1 bg-[#282C34] rounded-t-lg">
                         <div className="flex items-center h-10 w-full bg-[#21252B] rounded-t-lg border-b-background border-b-2">
