@@ -49,8 +49,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ card, containerProgres
                 className={`h-[95%] w-full relative ${translateY} group [perspective:5000px]`}
             >
                 <motion.div style={{ borderTopLeftRadius, borderTopRightRadius }} className={`h-full w-full ${color} transition-[transform] duration-1000 ease-in-out [transform-style:preserve-3d] ${isClicked ? "[transform:rotateY(180deg)]" : ""}`}>
-                    <div className="h-full w-full flex flex-col items-center px-40 [backface-visibility:hidden]">
-                        <div className="flex shrink-0 items-center justify-between w-full h-60">
+                    <div className="h-full w-full flex flex-col items-center lg:px-20 xl:px-40 [backface-visibility:hidden]">
+                        <div className="flex shrink-0 items-center max-xl:justify-evenly xl:justify-between w-full h-60 max-xl:flex-col">
                             <h3 className="text-6xl text-background">{title}</h3>
                             <div className="flex gap-4">
                                 {techs?.map((tech, index) => (
@@ -60,7 +60,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ card, containerProgres
                                 ))}
                             </div>
                         </div>
-                        <div className="relative h-full w-full">
+                        <div className="flex items-end relative h-full w-full">
                             <img
                                 className="rounded-t-[20px]"
                                 src={mainPicture}
