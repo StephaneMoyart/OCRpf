@@ -8,7 +8,8 @@ export const AnimatedText: React.FC<AnimatedTextProps> = ({ children }) => {
     return (
         <motion.div
             initial="initial"
-            whileHover="hovered" 
+            whileHover="hovered"
+            whileTap="hovered" 
             className="relative block overflow-hidden whitespace-nowrap cursor-pointer"
         >
             <div>

@@ -28,7 +28,7 @@ export const Projects = () => {
             secondaryPicture: "/kasa2.png",
             techs: ["React", "Sass"],
             description: "Création du front-end d'une application web de location immobilière en utilisant React et Sass.",
-            tasks: ["Création de 0 avec React/React router", "Reflexion en terme de composants réutilisables", "Design responsive desktop / tablette / mobile à partir d'une maquette Figma"],
+            tasks: ["Création de 0 avec React/React router.", "Reflexion en terme de composants réutilisables.", "Design responsive desktop / tablette / mobile à partir d'une maquette Figma."],
             color: "bg-foreground",
             githubLink: "https://github.com/StephaneMoyart/Projet5",
             translateY: "top-[10px]",
@@ -42,7 +42,7 @@ export const Projects = () => {
             secondaryPicture: "/mvg2.png",
             techs: ["NodeJs", "Express", "Mongoose", "MongoDB"],
             description: "Developpement du back-end d'un site communautaire de présentation et notation de livres.",
-            tasks: ["Création d'un serveur Express", "Connexion à une base de données mongoDB", "Modélisation de données via Mongoose", "Création d'API RESTful"],
+            tasks: ["Création d'un serveur Express.", "Connexion à une base de données mongoDB.", "Modélisation de données via Mongoose.", "Création d'API RESTful."],
             color: "bg-foreground",
             githubLink: "https://github.com/StephaneMoyart/Projet6",
             translateY: "top-[20px]",
@@ -67,7 +67,7 @@ export const Projects = () => {
     return (
         <>
             <div className="h-dvh w-full flex justify-center items-center">
-                <h2 className="text-9xl">MES PROJETS</h2>
+                <h2 className="text-5xl md:text-9xl">MES PROJETS</h2>
             </div>
             <div ref={container} className="">
                 { cards.map((card, index) => 

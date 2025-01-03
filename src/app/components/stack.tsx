@@ -85,43 +85,40 @@ export const Stack = () => {
         offset: ["start start","end end"]
     })
 
-    const [displayTitle, setDisplayTitle] = useState(false)
+    const [display, setDisplay] = useState(false)
 
     const scaleX = useTransform(scrollYProgress, [0, 0.5], [0, 1])
     const scaleY = useTransform(scrollYProgress, [0.5, 1], [0.009, 1])
 
     useEffect(() => {
         const display = scrollYProgress.on("change", value =>
-        setDisplayTitle(value === 1))
+        setDisplay(value === 1))
 
         return () => display()
     }, [scrollYProgress])
 
     return (
         <>
-            <motion.div ref={transitionContainer} className="h-[300dvh] bg-green-200" >
+            <motion.div ref={transitionContainer} className="h-[300dvh] bg-green-200">
                 <div className="sticky top-0 h-dvh w-full bg-foreground">
-                    <h2 className="absolute top-[50%] left-[50%] -translate-y-[calc(50%+17px)] -translate-x-[50%] text-9xl text-background">STACK</h2>
+                    <h2 className="absolute top-[50%] left-[50%] -translate-y-[calc(50%+13px)] md:-translate-y-[calc(50%+17px)] -translate-x-[50%] text-8xl md:text-9xl text-background">STACK</h2>
                     <motion.div className="flex items-center justify-center sticky h-dvh w-full bg-background"
                     style={{scaleX, scaleY}}
                     >
-                    {displayTitle && 
-                        <motion.div 
-                            className="flex justify-center items-center h-dvh w-full"
-                            // initial={{ x:-100, opacity: 0}}
-                            // animate={{x: 0, opacity: 1}}
-                            // transition={{ duration: 0.7}}
-                        >
-                            <div className="w-[90%] grid grid-cols-5 grid-rows-2 gap-8">
+                    {display && 
+                    <div className="flex items-center h-[150dvh] relative">
+                        <div className="sticky top-0 flex justify-center items-center h-dvh w-full">
+                            <div className="w-[90%] grid grid-cols-2 grid-rows-5 md:grid-cols-5 md:grid-rows-2 gap-4 md:gap-8">
                                 {stackItems.map(item => (
-                                    <div key={item.id} className={`max-h-[300px] flex items-center justify-center bg-foreground rounded-md border-2 border-black shadow-md shadow-black transition-shadow duration-500 ${item.hoverRingColor}`}>
-                                        <div className="flex items-center justify-center w-1/2 h-1/2">
+                                    <div key={item.id} className={`max-h-36 flex items-center justify-center bg-foreground rounded-md border-2 border-black shadow-md shadow-black transition-shadow duration-500 ${item.hoverRingColor} md:max-h-[200px] lg:max-h-[300px]`}>
+                                        <div className="flex items-center justify-center w-[88%] lg:w-1/2 lg:h-1/2 max-md:max-w-[150px]">
                                             {item.svg}
                                         </div>
                                     </div>
                                 ))}
                             </div>
-                        </motion.div>
+                        </div>
+                    </div>
                     }
                     </motion.div>
                 </div>
