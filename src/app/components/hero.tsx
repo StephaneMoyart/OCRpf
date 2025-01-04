@@ -3,13 +3,21 @@
 import Image from "next/image"
 import { TypedText } from "./typed-text"
 import { BlinkingCursor } from "./blinking-cursor"
-import { motion } from "motion/react"
+import { motion, Target, TargetAndTransition } from "motion/react"
 import { useEffect, useState } from "react"
 import { useViewport } from "../utils/use-viewport"
 
+type HeroCardAnimationTypes = {
+    initialLeft: Target
+    initialDown: Target
+    initialRight: Target
+    animate: TargetAndTransition
+    transition: object
+}
+
 export const HeroSection = () => {
     const media = useViewport()
-    const [heroCardAnimation, setHeroCardAnimation] = useState()
+    const [heroCardAnimation, setHeroCardAnimation] = useState<HeroCardAnimationTypes | undefined>()
 
     useEffect(() => {
         if (!media) return
@@ -17,16 +25,14 @@ export const HeroSection = () => {
             initialLeft: {opacity: 0, x: -30},
             initialDown: {opacity: 0, y: 30},
             initialRight: {opacity: 0, x: 30},
-            animateSide: {opacity: 1, x: 0},
-            animateUp: {opacity: 1, y: 0},
+            animate: {opacity: 1, x: 0, y: 0},
             transition: {duration: 0.5}
         })
         else setHeroCardAnimation({
             initialLeft: {opacity: 0},
             initialDown: {opacity: 0},
             initialRight: {opacity: 0},
-            animateSide: {opacity: 1},
-            animateUp: {opacity: 1},
+            animate: {opacity: 1},
             transition: {duration: 0.5}
         })
     }, [media])
@@ -63,7 +69,7 @@ export const HeroSection = () => {
                     
                     {heroCardAnimation &&
                         <>
-                            <motion.div initial={ heroCardAnimation?.initialLeft } animate={ heroCardAnimation?.animateSide} transition={ heroCardAnimation?.transition } className="relative xl:h-full w-full xl:w-1/3 bg-foreground border-2 border-black shadow-lg shadow-black rounded-md max-xl:rounded-b-2xl xl:rounded-l-2xl p-4 max-xl:order-3">
+                            <motion.div initial={ heroCardAnimation.initialLeft } animate={ heroCardAnimation.animate} transition={ heroCardAnimation.transition } className="relative xl:h-full w-full xl:w-1/3 bg-foreground border-2 border-black shadow-lg shadow-black rounded-md max-xl:rounded-b-2xl xl:rounded-l-2xl p-4 max-xl:order-3">
                                 <TypedText text="
                                     Interets &#123; <br /> 
                                     &nbsp;&nbsp; Developpement d'Applications Web <br /> 
@@ -79,7 +85,7 @@ export const HeroSection = () => {
                                 <BlinkingCursor/>
                             </motion.div>
 
-                            <motion.div initial={ heroCardAnimation?.initialDown } animate={ heroCardAnimation?.animateUp}  transition={ heroCardAnimation?.transition } className="relative xl:h-full w-full xl:w-1/3 bg-foreground border-2 border-black shadow-lg shadow-black rounded-md p-4 max-xl:order-2">
+                            <motion.div initial={ heroCardAnimation.initialDown } animate={ heroCardAnimation.animate}  transition={ heroCardAnimation.transition } className="relative xl:h-full w-full xl:w-1/3 bg-foreground border-2 border-black shadow-lg shadow-black rounded-md p-4 max-xl:order-2">
                                 <TypedText text="
                                     Portfolio &#123; <br /> 
                                     &nbsp;&nbsp; Réalisation personnelle <br /> 
@@ -98,7 +104,7 @@ export const HeroSection = () => {
                                 <BlinkingCursor/>
                             </motion.div>
                             
-                            <motion.div initial={ heroCardAnimation?.initialRight } animate={ heroCardAnimation?.animateSide} transition={ heroCardAnimation?.transition } className="relative xl:h-full w-full xl:w-1/3 bg-foreground border-2 p-4 border-black shadow-lg shadow-black rounded-md md:min-h-[320px] max-xl:order-1 max-xl:rounded-t-2xl xl:rounded-r-2xl">
+                            <motion.div initial={ heroCardAnimation.initialRight } animate={ heroCardAnimation.animate} transition={ heroCardAnimation.transition } className="relative xl:h-full w-full xl:w-1/3 bg-foreground border-2 p-4 border-black shadow-lg shadow-black rounded-md md:min-h-[320px] max-xl:order-1 max-xl:rounded-t-2xl xl:rounded-r-2xl">
                                 <TypedText text="
                                     Nom &#123; <br /> 
                                     &nbsp;&nbsp; Moyart <br /> 

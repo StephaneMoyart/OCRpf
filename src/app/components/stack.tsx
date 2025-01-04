@@ -3,8 +3,11 @@
 import { motion, useScroll, useTransform } from "motion/react"
 import { ExpressSvg, MongodbSvg, MongooseSvg, MotionSvg, NextSvg, NodejsSvg, ReactSvg, TailwindSvg, TypescriptSvg, ZodSvg } from "./svgs"
 import { useRef, useState, useEffect } from "react"
+import { useViewport } from "../utils/use-viewport"
 
 export const Stack = () => {
+    const media = useViewport()
+
     const stackItems = [
         {
             id: 1,
@@ -78,6 +81,41 @@ export const Stack = () => {
         },
     ]
 
+    const stackVariants = {
+        variant1: { initial: { opacity: 0, x: -30 }, animate: { opacity: 1, x: 0 }, transition: { duration: 0.8 }},
+        variant2: { initial: { opacity: 0, y: -30 }, animate: { opacity: 1, y: 0 }, transition: { duration: 0.8 }},
+        variant3: { initial: { opacity: 0, y: 30 }, animate: { opacity: 1, y: 0 }, transition: { duration: 0.8 }},
+        variant4: { initial: { opacity: 0, x: 30 }, animate: { opacity: 1, x: 0 }, transition: { duration: 0.8 }}
+    }
+
+    const handleVariantAssignment = (media: string) => {
+        if (!media) return
+        if (media !== "sm") {
+            return {
+                variant1: [1, 6],
+                variant2: [2, 3, 4],
+                variant3: [7, 8, 9],
+                variant4: [5, 10]
+            }
+        } else {
+            return {
+                variant1: [3, 5, 7],
+                variant2: [1, 2],
+                variant3: [9, 10],
+                variant4: [4, 6, 8]
+            }
+        }
+    }
+
+    const assignedVariant = handleVariantAssignment(media as string)
+    
+    const getVariant = (id: number) => {
+        if (assignedVariant?.variant1.includes(id)) return stackVariants.variant1
+        if (assignedVariant?.variant2.includes(id)) return stackVariants.variant2
+        if (assignedVariant?.variant3.includes(id)) return stackVariants.variant3
+        if (assignedVariant?.variant4.includes(id)) return stackVariants.variant4
+    };
+
     const transitionContainer = useRef(null)
 
     const { scrollYProgress } = useScroll({
@@ -118,11 +156,11 @@ export const Stack = () => {
                                 <div className="sticky top-0 flex justify-center items-center h-dvh w-full">
                                     <div className="w-[90%] grid grid-cols-2 grid-rows-5 md:grid-cols-5 md:grid-rows-2 gap-4 md:gap-8">
                                         {stackItems.map(item => (
-                                            <div key={item.id} className={`max-h-36 flex items-center justify-center bg-foreground rounded-md border-2 border-black shadow-md shadow-black transition-shadow duration-500 md:max-h-[200px] lg:max-h-[300px]`}>
+                                            <motion.div initial={getVariant(item.id)?.initial} animate={getVariant(item.id)?.animate} transition={getVariant(item.id)?.transition} key={item.id} className={`max-h-36 flex items-center justify-center bg-foreground rounded-md border-2 border-black shadow-md shadow-black transition-shadow duration-500 md:max-h-[200px] lg:max-h-[300px]`}>
                                                 <div className="flex items-center justify-center w-[88%] lg:w-1/2 lg:h-1/2 max-md:max-w-[150px]">
                                                     {item.svg}
                                                 </div>
-                                            </div>
+                                            </motion.div>
                                         ))}
                                     </div>
                                 </div>

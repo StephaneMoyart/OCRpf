@@ -11,7 +11,8 @@ export const TypedText: React.FC<TypedTextProps> = ({ text }) => {
     
     useEffect(() => {
         const timeout = setTimeout(() => {
-            const animation = animate(count, text.length, {
+            // todo: search for type 
+            const animation = animate(count, text.length as any, {
                 duration: 5,
             })
             
