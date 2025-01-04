@@ -9,13 +9,15 @@ export const useViewport = () => {
         const mediaQueries = {
             sm: window.matchMedia("(max-width: 767px)"),
             md: window.matchMedia("(min-width: 768px) and (max-width: 1023px)"),
-            lg: window.matchMedia("(min-width: 1024px)"),
+            lg: window.matchMedia("(min-width: 1024px) and (max-width: 1279px)"),
+            xl: window.matchMedia("(min-width: 1280px)")
         }
     
         const updateMedia = () => {
             if (mediaQueries.sm.matches) setMedia("sm")
             else if (mediaQueries.md.matches) setMedia("md")
             else if (mediaQueries.lg.matches) setMedia("lg")
+            else if (mediaQueries.xl.matches) setMedia("xl")
         }
     
         Object.values(mediaQueries).forEach((mediaQuery) =>
