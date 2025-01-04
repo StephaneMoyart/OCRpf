@@ -39,7 +39,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ card, containerProgres
                     className={`h-[95%] w-full flex items-center justify-center ${color} relative ${translateY}`}
                 >
                     {id === 3 &&
-                        <p className="max-md:p-4 text-background text-3xl">D'autres projets sont en cours de création...</p>
+                        <p className="max-md:p-4 md:p-4 md:text-pretty md:text-center text-background text-3xl">D'autres projets sont en cours de création...</p>
                     }
                 </motion.div>
             </div>
@@ -54,7 +54,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ card, containerProgres
                 className={`h-[95%] w-full relative cursor-pointer ${translateY} group [perspective:5000px]`}
             >
                 <motion.div style={media !== "sm" ? { borderTopLeftRadius, borderTopRightRadius } : undefined} className={`h-full w-full ${color} transition-[transform] duration-1000 ease-in-out [transform-style:preserve-3d] ${isClicked ? "[transform:rotateY(180deg)]" : ""}`}>
-                    <div className="h-full w-full flex flex-col items-center max-md:gap-8 lg:px-20 xl:px-40 [backface-visibility:hidden]">
+                    <div className="h-full w-full flex flex-col items-center max-md:gap-8 md:px-10 lg:px-20 xl:px-40 [backface-visibility:hidden]">
                         <div className="flex shrink-0 items-center max-xl:justify-evenly xl:justify-between w-full h-60 max-xl:flex-col">
                             <h3 className="max-md:p-4 text-4xl md:text-6xl text-background">{title}</h3>
                             <div className="max-md:p-4 flex flex-wrap max-md:justify-center gap-4">
@@ -65,13 +65,13 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ card, containerProgres
                                 ))}
                             </div>
                         </div>
-                        <div className="flex max-md:flex-col md:items-end relative h-full w-full">
+                        <div className="flex flex-col md:flex-col-reverse lg:items-end relative h-full w-full">
                             <img
                                 className="md:rounded-t-[20px]"
                                 src={mainPicture}
                                 alt="image principale du projet"
                             />
-                            <div className="flex flex-1 justify-center items-center md:hidden">
+                            <div className="flex flex-1 justify-center items-center lg:hidden">
                                 <p className="p-4 text-background border border-dashed">Appuyer pour + d'informations</p>
                             </div>
                         </div>
@@ -83,7 +83,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ card, containerProgres
                                 style={media !== "sm" ? { borderTopLeftRadius } : undefined}
                                 src={mainPicture}
                                 alt="image principale du projet"
-                                className="w-full h-full"
+                                className="w-full h-full object-cover"
                             />
                         </div>
                         <div className="grid grid-cols-2 grid-rows-2 max-md:gap-4 md:flex md:flex-col md:items-center md:justify-evenly max-md:order-1" style={{ gridTemplateRows: "auto 1fr" }}>
@@ -95,7 +95,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ card, containerProgres
                                     </div>
                                 ))}
                             </div>
-                            <p className="text-background max-md:text-[14px] max-md:text-pretty">{description}</p>
+                            <p className="text-background max-md:text-[14px] p-2 text-pretty text-center">{description}</p>
                             <a href={githubLink} target="_blank" className="flex justify-center items-center">
                                 <svg 
                                     onClick={e => e.stopPropagation()}
@@ -105,14 +105,15 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ card, containerProgres
                         </div>
                         <div className="flex flex-col items-center justify-evenly max-md:text-[14px] max-md:text-pretty max-md:order-3">
                             {tasks?.map((task, index) => (
-                                <p key={index} className="text-background">{task}</p>
+                                <p key={index} className="text-background text-pretty text-center p-2">{task}</p>
                             ))}
                         </div>
                         
                         <img
-                            className="max-md:order-4"
+                            className="max-md:order-4 w-full h-full object-cover"
                             src={secondaryPicture}
                             alt="image secondaire du projet"
+                            
                         />
                     </motion.div>
                 </motion.div>

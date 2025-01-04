@@ -52,7 +52,15 @@ export const Skills = () => {
     return (
         <div ref={containerRef} className="h-[200dvh] w-full bg-green-200">
             <div className="flex justify-center items-center sticky top-0 h-dvh bg-background overflow-hidden">
-                <motion.h2 style={{opacity, translateX}} className="relative text-5xl md:text-9xl text-foreground">COMPETENCES</motion.h2>
+                <motion.h2 
+                    style={{opacity, translateX}}
+                    initial={{ opacity: 0, y: 50 }} 
+                    whileInView={{ opacity: 1, y: 0 }} 
+                    viewport={{ amount: "all", once: true }} transition={{ duration: 0.8}} 
+                    className="relative text-5xl md:text-7xl lg:text-9xl text-foreground"
+                >
+                    COMPETENCES
+                </motion.h2>
                 <motion.div style={{scaleX}} className=" absolute h-dvh w-full bg-foreground transform origin-right">
                     {show &&
                         <div className="flex items-center justify-evenly h-full w-full max-md:flex-col">

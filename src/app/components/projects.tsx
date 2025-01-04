@@ -1,6 +1,4 @@
-'use client'
-
-import { useScroll} from "motion/react"
+import { motion, useScroll} from "motion/react"
 import { useRef } from "react"
 import { ProjectCard } from "./project-card"
 
@@ -67,7 +65,14 @@ export const Projects = () => {
     return (
         <>
             <div className="h-dvh w-full flex justify-center items-center">
-                <h2 className="text-5xl md:text-9xl">MES PROJETS</h2>
+                <motion.h2 
+                    initial={{ opacity: 0, y: 50 }} 
+                    whileInView={{ opacity: 1, y: 0 }} 
+                    viewport={{ amount: "all", once: true }} transition={{ duration: 0.8}} 
+                    className="text-5xl md:text-7xl lg:text-9xl"
+                >
+                    MES PROJETS
+                </motion.h2>
             </div>
             <div ref={container} className="">
                 { cards.map((card, index) => 

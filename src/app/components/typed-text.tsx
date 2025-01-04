@@ -10,10 +10,15 @@ export const TypedText: React.FC<TypedTextProps> = ({ text }) => {
     const count = useMotionValue(0)
     
     useEffect(() => {
-        const controls = animate(count, text.length, {
-            duration: 5,
-        })
-        return controls.stop
+        const timeout = setTimeout(() => {
+            const animation = animate(count, text.length, {
+                duration: 5,
+            })
+            
+            return animation.stop
+        }, 500)
+
+        return () => clearTimeout(timeout)
     }, [])
 
     const rounded = useTransform(count, (latest) => Math.round(latest))
