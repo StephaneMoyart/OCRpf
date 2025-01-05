@@ -73,6 +73,7 @@ export const HeroSection = () => {
                                 <TypedText text="
                                     Interets &#123; <br /> 
                                     &nbsp;&nbsp; Developpement d'Applications Web <br /> 
+                                    &nbsp;&nbsp; Expérience utilisateur <br /> 
                                     &nbsp;&nbsp; Veille permanente <br /> 
                                     &#125; <br />
                                     <br />
@@ -97,6 +98,7 @@ export const HeroSection = () => {
                                     &nbsp;&nbsp; Motion <br /> 
                                     &nbsp;&nbsp; Tailwind <br /> 
                                     &nbsp;&nbsp; Typescript <br /> 
+                                    &nbsp;&nbsp; Lenis (Smooth scroll) <br /> 
                                     &#125; <br />
                                     <br />
                                     /* Et c'est tout ! */

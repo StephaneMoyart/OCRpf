@@ -1,5 +1,3 @@
-'use client'
-
 import { motion, useScroll, useTransform } from "motion/react"
 import { ExpressSvg, MongodbSvg, MongooseSvg, MotionSvg, NextSvg, NodejsSvg, ReactSvg, TailwindSvg, TypescriptSvg, ZodSvg } from "./svgs"
 import { useRef, useState, useEffect } from "react"
@@ -11,23 +9,26 @@ export const Stack = () => {
     const stackItems = [
         {
             id: 1,
-            name: "NextSvg",
+            name: "Next",
             svg: <NextSvg/>,
             color: "#000000",
-            hoverRingColor: "[#FFFFFF]"
+            textColor: "text-[#FFFFFF]",
+            hoverRingColor: "hover:ring-[#FFFFFF]"
         },
         {
             id: 2,
-            name: "ReactSvg",
+            name: "React",
             svg: <ReactSvg/>,
             color: "#61DAFB",
-            hoverRingColor: "[#61DAFB]"
+            textColor: "text-[#61DAFB]",
+            hoverRingColor: "hover:-ring-[#61DAFB]"
         },
         {
             id: 3,
             name: "Typescript",
             svg: <TypescriptSvg/>,
             color: "#3178C6",
+            textColor: "text-[#3178C6]",
             hoverRingColor: "hover:ring-[#3178C6]"
         },
         {
@@ -35,6 +36,7 @@ export const Stack = () => {
             name: "Tailwind",
             svg: <TailwindSvg/>,
             color: "#06B6D4",
+            textColor: "text-[#06B6D4]",
             hoverRingColor: "hover:ring-[#06B6D4]"
         },
         {
@@ -42,6 +44,7 @@ export const Stack = () => {
             name: "Motion",
             svg: <MotionSvg/>,
             color: "#F5EA16",
+            textColor: "text-[#F5EA16]",
             hoverRingColor: "hover:ring-[#F5EA16]"
         },
         {
@@ -49,6 +52,7 @@ export const Stack = () => {
             name: "NodeJs",
             svg: <NodejsSvg/>,
             color: "#83CD29",
+            textColor: "text-[#83CD26]",
             hoverRingColor: "hover:ring-[#83CD29]"
         },
         {
@@ -56,6 +60,7 @@ export const Stack = () => {
             name: "Express",
             svg: <ExpressSvg/>,
             color: "#FFFFFF",
+            textColor: "text-[#FFFFFF]",
             hoverRingColor: "hover:ring-[#FFFFFF]"
         },
         {
@@ -63,6 +68,7 @@ export const Stack = () => {
             name: "MongoDB",
             svg: <MongodbSvg/>,
             color: "#599636",
+            textColor: "text-[#599636]",
             hoverRingColor: "hover:ring-[#599636]"
         },
         {
@@ -70,6 +76,7 @@ export const Stack = () => {
             name: "Mongoose",
             svg: <MongooseSvg/>,
             color: "#850000",
+            textColor: "text-[#850000]",
             hoverRingColor: "hover:ring-[#850000]"
         },
         {
@@ -77,6 +84,7 @@ export const Stack = () => {
             name: "Zod",
             svg: <ZodSvg/>,
             color: "#3068B7",
+            textColor: "text-[#3068B7]",
             hoverRingColor: "hover:ring-[#3068B7]"
         },
     ]
@@ -156,10 +164,13 @@ export const Stack = () => {
                                 <div className="sticky top-0 flex justify-center items-center h-dvh w-full">
                                     <div className="w-[90%] grid grid-cols-2 grid-rows-5 md:grid-cols-5 md:grid-rows-2 gap-4 md:gap-8">
                                         {stackItems.map(item => (
-                                            <motion.div initial={getVariant(item.id)?.initial} animate={getVariant(item.id)?.animate} transition={getVariant(item.id)?.transition} key={item.id} className={`max-h-36 flex items-center justify-center bg-foreground rounded-md border-2 border-black shadow-md shadow-black transition-shadow duration-500 md:max-h-[200px] lg:max-h-[300px]`}>
-                                                <div className="flex items-center justify-center w-[88%] lg:w-1/2 lg:h-1/2 max-md:max-w-[150px]">
+                                            <motion.div initial={getVariant(item.id)?.initial} animate={getVariant(item.id)?.animate} whileHover="hover" transition={getVariant(item.id)?.transition} key={item.id} className={`relative max-h-36 flex items-center justify-center bg-foreground rounded-md border-2 border-black shadow-md shadow-black transition-shadow duration-500 ${item.hoverRingColor} hover:ring ring-offset-4 ring-offset-[#C8C8C8] md:max-h-[200px] lg:max-h-[300px]`}>
+                                                <motion.div variants={{ hover: { opacity: 0, y: "-20%"}}} transition={{ duration: 0.3 }} className="flex items-center justify-center w-[88%] lg:w-1/2 lg:h-1/2 max-md:max-w-[150px]">
                                                     {item.svg}
-                                                </div>
+                                                </motion.div>
+                                                <motion.div initial={{ opacity: 0, y: "50%" }} variants={{ hover: { opacity: 1, y: 0 }}} transition={{ duration: 0.3 }} className={`absolute place-items-center text-xl ${item.textColor}`}>
+                                                    {item.name}
+                                                </motion.div>
                                             </motion.div>
                                         ))}
                                     </div>

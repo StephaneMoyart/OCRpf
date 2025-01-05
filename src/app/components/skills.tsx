@@ -65,18 +65,18 @@ export const Skills = () => {
                     {show &&
                         <div className="flex items-center justify-evenly h-full w-full max-md:flex-col">
                             <div className="flex flex-col text-background lg:text-8xl font-bold uppercase text-7xl">
-                                <div onClick={() => setSelectedSkill(1)}>
+                                <motion.div initial={{ opacity: 0, y: "150%" }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} onClick={() => setSelectedSkill(1)}>
                                     <AnimatedText>Github</AnimatedText>
-                                </div>
-                                <div onClick={() => setSelectedSkill(2)}>
+                                </motion.div>
+                                <motion.div initial={{ opacity: 0, y: "300%" }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} onClick={() => setSelectedSkill(2)}>
                                     <AnimatedText>Figma</AnimatedText>
-                                </div>
-                                <div onClick={() => setSelectedSkill(3)}>
+                                </motion.div>
+                                <motion.div initial={{ opacity: 0, y: "450%" }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} onClick={() => setSelectedSkill(3)}>
                                     <AnimatedText>Slack</AnimatedText>
-                                </div>
-                                <div onClick={() => setSelectedSkill(4)}>
+                                </motion.div>
+                                <motion.div initial={{ opacity: 0, y: "600%" }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} onClick={() => setSelectedSkill(4)}>
                                     <AnimatedText>Notion</AnimatedText>
-                                </div>
+                                </motion.div>
                             </div>
 
                             <div className="relative w-[95%] max-md:max-w-[400px] aspect-square md:min-w-[370px] md:w-[40%] lg:w-[30%]">
@@ -85,12 +85,12 @@ export const Skills = () => {
                                         <motion.div 
                                             initial={{y: "50%", rotate: -15, opacity: 0, scale: 0.9}}
                                             animate={{y: 0, rotate: 0, opacity: 1, scale: 1}}
-                                            transition={{ duration: 1 }}
+                                            transition={{ duration: 0.8 }}
                                             exit={{x: "50%", rotate: 15, opacity: 0, scale: 0.5, transition: {duration: 0.5}}}
                                             className="w-full h-full flex flex-col absolute inset-0 bg-background rounded-lg border border-black shadow-sm shadow-[#C8C8C8]" key={skill.id}
                                         >
                                             <div className="flex justify-center items-center h-1/2">
-                                                <div className="w-40 h-40 lg:w-[200px] lg:h-[200px] flex justify-center items-center">
+                                                <div className="w-40 h-40 p-2 lg:w-[200px] lg:h-[200px] flex justify-center items-center">
                                                     {skill.svg}
                                                 </div>
                                             </div>
