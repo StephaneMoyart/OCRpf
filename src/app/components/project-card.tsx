@@ -67,7 +67,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ card, containerProgres
                                 alt="image principale du projet"
                             />
                             <div className="flex flex-1 justify-center items-center lg:hidden">
-                                <p className="p-4 text-background border border-dashed">Appuyer pour + d'informations</p>
+                                <p className="p-4 text-background border border-dashed">Appuyer pour + d`&apos;`informations</p>
                             </div>
                         </div>
                     </div>

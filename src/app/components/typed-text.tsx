@@ -20,7 +20,7 @@ export const TypedText: React.FC<TypedTextProps> = ({ text }) => {
         }, 500)
 
         return () => clearTimeout(timeout)
-    }, [])
+    }, [count, text.length])
 
     const rounded = useTransform(count, (latest) => Math.round(latest))
 
