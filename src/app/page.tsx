@@ -28,7 +28,7 @@ export default function Home() {
         <>
             <HeroSection/>
             <Projects/>
-            <div className="h-[30px] wfull"/>  
+            <div className="h-[30px]"/>  
             <Skills/>
             <Stack/>
             

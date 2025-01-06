@@ -3,7 +3,7 @@
 import Image from "next/image"
 import { TypedText } from "./typed-text"
 import { BlinkingCursor } from "./blinking-cursor"
-import { motion, Target, TargetAndTransition } from "motion/react"
+import { motion, Target, TargetAndTransition, useAnimate } from "motion/react"
 import { useEffect, useState } from "react"
 import { useViewport } from "../utils/use-viewport"
 
@@ -17,6 +17,7 @@ type HeroCardAnimationTypes = {
 
 export const HeroSection = () => {
     const media = useViewport()
+
     const [heroCardAnimation, setHeroCardAnimation] = useState<HeroCardAnimationTypes | undefined>()
 
     useEffect(() => {
@@ -48,8 +49,8 @@ export const HeroSection = () => {
                     <motion.p
                         className="text-7xl origin-bottom"
                         initial={{ opacity: 0, rotateX: -90 }}
-                        animate={{ opacity: 1 , rotateX: 0 }}
-                        transition={{ duration: 0.8 }}
+                        animate={{ opacity: [0, 1, 1, 1, 1, 1, 1, 1] , rotateX: [-90, 0, 0, 0, 0, 0, 0, 0], rotate: [0, 0, 15, -15, 15, -15, 15, 0]}}
+                        transition={{ duration: 2, times: [0, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1] }}
                     >
                         👋
                     </motion.p>

@@ -34,7 +34,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ card, containerProgres
                     className={`h-[95%] w-full flex items-center justify-center ${color} relative ${translateY}`}
                 >
                     {id === 3 &&
-                        <p className="max-md:p-4 md:p-4 md:text-pretty md:text-center text-background text-3xl">D`&apos;`autres projets sont en cours de création...</p>
+                        <p className="max-md:p-4 md:p-4 md:text-pretty md:text-center text-background text-3xl">D&apos;autres projets sont en cours de création...</p>
                     }
                 </motion.div>
             </div>
@@ -67,18 +67,18 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ card, containerProgres
                                 alt="image principale du projet"
                             />
                             <div className="flex flex-1 justify-center items-center lg:hidden">
-                                <p className="p-4 text-background border border-dashed">Appuyer pour + d`&apos;`informations</p>
+                                <p className="p-4 text-background border border-dashed">Appuyer pour + d&apos;informations</p>
                             </div>
                         </div>
                     </div>
 
                     <motion.div style={{ borderTopLeftRadius, borderTopRightRadius }} className="absolute inset-0 h-full w-full max-md:p-4 md:grid flex flex-col max-md:justify-between md:grid-cols-2 md:grid-rows-2 [transform:rotateY(180deg)] [backface-visibility:hidden] bg-foreground">
-                        <div className="relative max-md:order-2">
+                        <div className="max-md:flex max-md:justify-center relative max-md:order-2">
                             <motion.img
                                 style={media !== "sm" ? { borderTopLeftRadius } : undefined}
                                 src={mainPicture}
                                 alt="image principale du projet"
-                                className="w-full h-full object-cover"
+                                className="w-full h-full object-cover max-md:max-w-[420px]"
                             />
                         </div>
                         <div className="grid grid-cols-2 grid-rows-2 max-md:gap-4 md:flex md:flex-col md:items-center md:justify-evenly max-md:order-1" style={{ gridTemplateRows: "auto 1fr" }}>
@@ -105,7 +105,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ card, containerProgres
                         </div>
                         
                         <img
-                            className="max-md:order-4 w-full h-full object-cover"
+                            className="w-full h-full object-cover max-md:flex max-md:self-center max-md:order-4 max-md:max-w-[420px]"
                             src={secondaryPicture}
                             alt="image secondaire du projet"
                             
