@@ -34,7 +34,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ card, containerProgres
                     className={`h-[95%] w-full flex items-center justify-center ${color} relative ${translateY}`}
                 >
                     {id === 3 &&
-                        <p className="max-md:p-4 md:p-4 md:text-pretty md:text-center text-background text-3xl">D&apos;autres projets sont en cours de création...</p>
+                        <p className="max-md:p-4 md:p-4 md:text-pretty md:text-center text-background text-3xl">D`&apos;`autres projets sont en cours de création...</p>
                     }
                 </motion.div>
             </div>
