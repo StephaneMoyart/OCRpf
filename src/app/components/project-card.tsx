@@ -1,7 +1,4 @@
-'use client'
-
 import { motion, MotionValue, useScroll, useTransform } from "motion/react"
-import Image from "next/image"
 import { useRef, useState } from "react"
 import { CardType } from "./projects"
 import { useViewport } from "../utils/use-viewport"
@@ -28,8 +25,6 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ card, containerProgres
     const [isClicked, setIsClicked] = useState(false)
 
     const media = useViewport()
-    console.log(media);
-    
 
     if (id === 3) {
         return (
@@ -87,15 +82,15 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ card, containerProgres
                             />
                         </div>
                         <div className="grid grid-cols-2 grid-rows-2 max-md:gap-4 md:flex md:flex-col md:items-center md:justify-evenly max-md:order-1" style={{ gridTemplateRows: "auto 1fr" }}>
-                            <h3 className="text-3xl text-background">{title}</h3>
+                            <h3 className="max-md:text-2xl text-3xl text-background">{title}</h3>
                             <div className="flex gap-4 max-md:justify-center max-md:flex-wrap">
                                 {techs?.map((tech, index) => (
                                     <div key={index} className="px-2 py-2 lg:px-4 rounded-3xl border-dashed border border-white">
-                                        <p className="text-background max-lg:text-[12px]">{tech}</p>
+                                        <p className="text-background max-lg:text-[11px]">{tech}</p>
                                     </div>
                                 ))}
                             </div>
-                            <p className="text-background max-md:text-[14px] p-2 text-pretty">{description}</p>
+                            <p className="text-background max-md:text-[14px] p-2 pl-0 md:pl-2 text-pretty md:text-center">{description}</p>
                             <a href={githubLink} target="_blank" className="flex justify-center items-center p-2">
                                 <svg 
                                     onClick={e => e.stopPropagation()}

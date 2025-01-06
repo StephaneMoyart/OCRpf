@@ -145,7 +145,7 @@ export const Stack = () => {
 
     return (
         <>
-            <motion.div ref={transitionContainer} className="h-[300dvh] bg-green-200">
+            <motion.div ref={transitionContainer} className="mt-[25dvh] h-[300dvh] bg-green-200">
                 <div className="sticky top-0 h-dvh w-full bg-foreground">
                     <motion.h2 
                         initial={{ opacity: 0 }} 
@@ -160,15 +160,31 @@ export const Stack = () => {
                         style={{scaleX, scaleY}}
                     >
                         {display && 
-                            <div className="flex items-center h-[150dvh] relative">
+                            <div className=" h-[150dvh]">
                                 <div className="sticky top-0 flex justify-center items-center h-dvh w-full">
-                                    <div className="w-[90%] grid grid-cols-2 grid-rows-5 md:grid-cols-5 md:grid-rows-2 gap-4 md:gap-8">
+                                    <div className="w-[90%] grid grid-cols-2 grid-rows-5 md:grid-cols-5 md:grid-rows-2 gap-4 lg:gap-8">
                                         {stackItems.map(item => (
-                                            <motion.div initial={getVariant(item.id)?.initial} animate={getVariant(item.id)?.animate} whileHover="hover" transition={getVariant(item.id)?.transition} key={item.id} className={`relative max-h-36 flex items-center justify-center bg-foreground rounded-md border-2 border-black shadow-md shadow-black transition-shadow duration-500 ${item.hoverRingColor} hover:ring ring-offset-4 ring-offset-[#C8C8C8] md:max-h-[200px] lg:max-h-[300px]`}>
-                                                <motion.div variants={{ hover: { opacity: 0, y: "-20%"}}} transition={{ duration: 0.3 }} className="flex items-center justify-center w-[88%] lg:w-1/2 lg:h-1/2 max-md:max-w-[150px]">
+                                            <motion.div 
+                                                initial={getVariant(item.id)?.initial} 
+                                                animate={getVariant(item.id)?.animate} 
+                                                whileHover="hover" 
+                                                transition={getVariant(item.id)?.transition} 
+                                                key={item.id} 
+                                                className={`relative max-h-36 flex items-center justify-center bg-foreground rounded-md border-2 border-black shadow-md shadow-black transition-shadow duration-500 ${item.hoverRingColor} hover:ring ring-offset-4 ring-offset-[#C8C8C8] md:max-h-[200px] lg:max-h-[300px] lg:aspect-square`}
+                                            >
+                                                <motion.div 
+                                                    variants={{ hover: { opacity: 0, y: "-20%"}}} 
+                                                    transition={{ duration: 0.3 }} 
+                                                    className="flex items-center justify-center w-[80%] h-[80%] lg:w-1/2 lg:h-1/2"
+                                                >
                                                     {item.svg}
                                                 </motion.div>
-                                                <motion.div initial={{ opacity: 0, y: "50%" }} variants={{ hover: { opacity: 1, y: 0 }}} transition={{ duration: 0.3 }} className={`absolute place-items-center text-xl ${item.textColor}`}>
+                                                <motion.div 
+                                                    initial={{ opacity: 0, y: "50%" }} 
+                                                    variants={{ hover: { opacity: 1, y: 0 }}} 
+                                                    transition={{ duration: 0.3 }} 
+                                                    className={`absolute place-items-center text-xl ${item.textColor}`}
+                                                >
                                                     {item.name}
                                                 </motion.div>
                                             </motion.div>

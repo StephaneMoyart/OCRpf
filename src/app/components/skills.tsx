@@ -50,20 +50,22 @@ export const Skills = () => {
     }, [scrollYProgress])
 
     return (
-        <div ref={containerRef} className="h-[200dvh] w-full bg-green-200">
-            <div className="flex justify-center items-center sticky top-0 h-dvh bg-background overflow-hidden">
+        <div ref={containerRef} className="relative h-[250dvh] w-full bg-green-200">
+            <div className="flex justify-center items-center sticky top-0 h-dvh bg-background">
                 <motion.h2 
                     style={{opacity, translateX}}
                     initial={{ opacity: 0, y: 50 }} 
                     whileInView={{ opacity: 1, y: 0 }} 
                     viewport={{ amount: "all", once: true }} transition={{ duration: 0.8}} 
-                    className="relative text-5xl md:text-7xl lg:text-9xl text-foreground"
+                    className="relative text-5xl text-foreground md:text-7xl lg:text-9xl "
                 >
                     COMPETENCES
                 </motion.h2>
-                <motion.div style={{scaleX}} className=" absolute h-dvh w-full bg-foreground transform origin-right">
+                <motion.div style={{scaleX}} className="absolute h-[150dvh] w-full bg-foreground transform origin-right">
                     {show &&
-                        <div className="flex items-center justify-evenly h-full w-full max-md:flex-col">
+                    <div className="h-[150dvh] w-full">
+
+                        <div className="sticky top-0 flex items-center justify-evenly h-dvh w-full max-md:flex-col">
                             <div className="flex flex-col text-background lg:text-8xl font-bold uppercase text-7xl">
                                 <motion.div initial={{ opacity: 0, y: "150%" }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} onClick={() => setSelectedSkill(1)}>
                                     <AnimatedText>Github</AnimatedText>
@@ -103,6 +105,7 @@ export const Skills = () => {
                                 </AnimatePresence>
                             </div>
                         </div>
+                    </div>
                     }
                 </motion.div>
             </div>
